@@ -5,6 +5,7 @@ import Navbar from './components/bars/navbar/Navbar'
 import Profile from './pages/profile/Profile';
 import Article from './pages/article/Article';
 import HomeContainer from './pages/home/HomeContainer';
+import SignIn from './components/SignIn';
 
 function App() {
   const buttons = ['Зарегистрироваться', 'Войти']
@@ -13,6 +14,7 @@ function App() {
     <Navbar navItems={buttons}/>
     <Routes>
       <Route path='/' element={<HomeContainer />} />
+      <Route path='/sign_in' element={<SignIn />} />
       <Route path='/profile' element={<Profile />} />
       <Route path='/article' element={<Article />} />
     </Routes>
