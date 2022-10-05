@@ -1,7 +1,7 @@
 const { getJSON, API, postJSON } = require('./api')
 
-const fetch = async () => {
-  return await getJSON(API.post)
+const fetch = async (queryParams) => {
+  return await getJSON(queryParams ? `${API.post}?${queryParams}` : API.post)
 }
 
 const fetchOne = async (id) => {
