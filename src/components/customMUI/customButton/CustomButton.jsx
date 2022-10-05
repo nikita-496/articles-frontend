@@ -3,8 +3,10 @@ import Button from '@mui/material/Button';
 
 const CustomButton = ({ inner }) => {
   return (
-    <Button variant="contained">{inner}</Button>
-  )
-}
+    <Button variant='contained' type='submit'>
+      {inner}
+    </Button>
+  );
+};
 
-export default CustomButton
+export default CustomButton;
