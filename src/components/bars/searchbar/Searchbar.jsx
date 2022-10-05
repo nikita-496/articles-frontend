@@ -46,13 +46,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Searchbar = () => {
+const Searchbar = (props) => {
+  
+  const handleSearchQuery = (e) => {
+    props.setSearchQuery(e.target.value)
+    if (e.target.value) {
+      props.setQueryParams()
+    }else {
+      props.setQueryParams(`page=1&limit=10`)
+    }
+  }
   return(
-    <Search>
+    <Search onChange={handleSearchQuery}>
       <SearchIconWrapper>
         <SearchIcon />
       </SearchIconWrapper>
-      <StyledInputBase placeholder='Search…' inputProps={{ 'aria-label': 'search' }} />
+      <StyledInputBase placeholder='Поиск' inputProps={{ 'aria-label': 'search' }} />
     </Search>
   );
 };

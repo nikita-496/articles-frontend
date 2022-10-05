@@ -5,16 +5,12 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { proposalSyntaxPlugins } from '@babel/preset-env/lib/shipped-proposals';
 
 
 const CustomSelect = (props) => {
-    //const [age, setAge] = React.useState('');
-
-  /*const handleChange = (event) => {
-    setAge(event.target.value);
-  };*/
-
+  const handleChange = (evt) => {
+    props.setSortСriteria(evt.target.value)
+  }
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
@@ -22,18 +18,15 @@ const CustomSelect = (props) => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={props.label}
+          value={props.sorted}
           label={props.label}
+          onChange={handleChange}
         >
-          <ul>
             {
               props.options.map(option => 
-              <li key={option}>
-                <MenuItem value={option}>{option}</MenuItem>
-              </li>
+              <MenuItem value={option} key={option}>{option}</MenuItem>
               )
             }
-          </ul>
         </Select>
       </FormControl>
     </Box>
