@@ -13,7 +13,7 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  plugins: ['react', 'jest'],
+  plugins: ['react', 'jest',  "react-hooks"],
   settings: {
     react: {
       version: 'detect',
@@ -36,5 +36,7 @@ module.exports = {
     'arrow-spacing': ['error', { before: true, after: true }],
     /*"no-console": [2, {"allow": ["warn", "error"] }],*/
     'react/prop-types': 0,
+    "react-hooks/rules-of-hoocks": 'error',
+    "react-hooks/exhaustive-deps": 'warn'
   },
 };
