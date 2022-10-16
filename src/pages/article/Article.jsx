@@ -1,100 +1,41 @@
 import React from 'react';
-
-import Typography from '@mui/material/Typography';
-import { List, ListItem } from '@mui/material';
-
+import { Box, List, ListItem } from '@mui/material';
+import Author from '../../components/Author';
 import Sidebar from '../../components/bars/sidebar/Sidebar';
-import UserInfo from '../../components/userInfo/userInfo';
-import CardItem from '../../components/content/cardItem/cardItem';
-import CustomDate from '../../components/customMUI/customDate/CustomDate';
-import CustomTag from '../../components/customMUI/customTag/CustomTag';
-import Toolsbar from '../../components/bars/toolsbar/Toolsbar';
 
-import user from '../../assets/user.png';
-import CustomButton from '../../components/customMUI/customButton/CustomButton';
+const Article = (props) => {
 
-import authorAvatar from '../../assets/user.png';
-import poster from '../../assets/poster.png';
+  const owner = (
+    <li>
+     <p>Автор статьи</p>
+    </li>
+  );
 
-const Article = () => {
-  const articleDate = {
-    poster,
-    authorAvatar,
-    altPoster: 'poster',
-    title: 'Карирование',
-    body: 'Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg. Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg. Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg. Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg. Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg. Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg. Lorem inpsum fgwg Lorem inpsum fgwg. Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg. Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg. Lorem inpsum fgwg Lorem inpsum fgwg.Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg. Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg Lorem inpsum fgwg. Lorem inpsum fgwg Lorem inpsum fgwg.',
-    tags: ['JavaScripr', 'ФП', 'АиСД'],
-  };
-  const sameArticle = [
-    {
-      poster,
-      altPoster: 'sameArticle#1',
-      authorAvatar,
-      authorName: 'David',
-      authorLevel: '13',
-      title: 'Частичное применение в JavaScript',
-      followers: '109',
-      datePublic: '1 месяц назад',
-      toolCounts: [
-        { id: 1, value: 100 },
-        { id: 1, value: 20 },
-        { id: 1, value: 40 },
-      ],
-    },
-    {
-      poster,
-      altPoster: 'sameArticle#2',
-      authorAvatar,
-      authorName: 'David',
-      authorLevel: '13',
-      title: 'Частичное применение в JavaScript',
-      followers: '109',
-      datePublic: '1 месяц назад',
-      toolCounts: [
-        { id: 1, value: 100 },
-        { id: 1, value: 20 },
-        { id: 1, value: 40 },
-      ],
-    },
-    {
-      poster,
-      altPoster: 'sameArticle#3',
-      authorAvatar,
-      authorName: 'David',
-      authorLevel: '13',
-      title: 'Частичное применение в JavaScript',
-      followers: '109',
-      datePublic: '1 месяц назад',
-      toolCounts: [
-        { id: 1, value: 100 },
-        { id: 1, value: 20 },
-        { id: 1, value: 40 },
-      ],
-    },
-    {
-      poster,
-      altPoster: 'sameArticle#4',
-      authorAvatar,
-      authorName: 'David',
-      authorLevel: '13',
-      title: 'Частичное применение в JavaScript',
-      followers: '109',
-      datePublic: '1 месяц назад',
-      toolCounts: [
-        { id: 1, value: 100 },
-        { id: 1, value: 20 },
-        { id: 1, value: 40 },
-      ],
-    },
-  ];
+  const list = (
+    <li>
+      <p>Похожие статьи</p>
+    </li>
+  );
   return (
-    <>
-      <Sidebar anchor='right'>
-        <UserInfo avatar={{ src: user, alt: 'user' }}>
-          <Typography variant='subtitle'>Nikitos</Typography>
-          <Typography variant='body'>20 уровень</Typography>
-          <Typography variant='body'>139 подписчиков</Typography>
-        </UserInfo>
+    <Box sx={{ mt: '200px' }}>
+      {props.tabs}
+      <section>
+        <h1>{props.title}</h1>
+        <Author info={props.author}>
+          <span>{props.author.fullName}</span>
+        </Author>
+        {props.body}
+      </section>
+      <Sidebar anchor='right' owner={owner} list={list} />
+    </Box>
+  );
+};
+
+export default Article;
+
+/*
+ <Sidebar anchor='right'>
+      
         <CustomButton inner='Подписаться' />
         <div>
           <Typography variant='h3'>Похожие статьи</Typography>
@@ -148,8 +89,7 @@ const Article = () => {
         <Typography variant='subtitle'>20 уровень уровень</Typography>
         <Typography variant='subtitle'>Nikita Shevkunov</Typography>
       </CardItem>
-    </>
-  );
-};
 
-export default Article;
+
+
+*/
