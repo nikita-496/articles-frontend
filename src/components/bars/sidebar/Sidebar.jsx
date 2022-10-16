@@ -22,7 +22,10 @@ const Sidebar = (props) => {
         variant="permanent"
         anchor={props.anchor}
       >
-        {props.children}
+        <ul>
+          {props.owner}
+          {props.list}
+        </ul>
       </Drawer>
 
     </Box>
