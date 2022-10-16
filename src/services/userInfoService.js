@@ -1,8 +1,7 @@
 import { API, getJSON } from "./api"
 
 const fetch = async () => {
-  console.log(3)
-  return await getJSON(API.profile)
+ return await getJSON(API.userInfo)
 }
 
 export default { fetch }

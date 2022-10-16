@@ -16,7 +16,8 @@ const url = (url) => `${baseUrl}${url}`;
 const API = {
   post: url('/post'),
   person: url('/person'),
-  profile: url('/profile'),
+  image: url('/image'),
+  userInfo: url('/user_info'),
   feed: url('/feed'),
   comment: url ('/comment'),
   joingPerson: url('/joing/person'),
