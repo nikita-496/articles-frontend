@@ -5,7 +5,7 @@ import personService from '../services/personService';
 
 
 import withForm from '../hocs/withForm';
-import signUpForm from '../utils/fieldsForm/signUpForm';
+import signUpForm from '../utils/config/fieldsForm/signUpForm';
 import CustomButton from './customMUI/customButton/CustomButton';
 import CustomInput from './customMUI/customInput';
 
@@ -20,7 +20,8 @@ const SignUp = (props) => {
 
   const navigate = useNavigate();
   const handleRegister = (ev) => {
-    props.postJSON(ev, personService.register, data).then(() => {
+    props.postJSON(ev, personService.register, data)
+    .then(() => {
       navigate('/sign/in');
     });
   };

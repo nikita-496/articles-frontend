@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import loginForm from '../utils/fieldsForm/loginForm';
+import loginForm from '../utils/config/fieldsForm/loginForm';
 import personService from '../services/personService';
 import localStorageManager from '../persistentStorge/localStorageManager';
 
@@ -20,7 +20,8 @@ const SignIn = (props) => {
   const handleLogin = (evt) => {
     props.postJSON(evt, personService.login, data).then((res) => {
       localStorageManager.set('user', res);
-      navigate(`/profile/${res.userInfo.login}`);
+      console.log(res)
+      navigate(`/profile/${res.login}`);
     });
   };
 
