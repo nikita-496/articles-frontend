@@ -1,15 +1,9 @@
 import React from 'react';
-import { Box, List, ListItem } from '@mui/material';
+import { Box } from '@mui/material';
 import Author from '../../components/Author';
 import Sidebar from '../../components/bars/sidebar/Sidebar';
 
 const Article = (props) => {
-
-  const owner = (
-    <li>
-     <p>Автор статьи</p>
-    </li>
-  );
 
   const list = (
     <li>
@@ -26,7 +20,7 @@ const Article = (props) => {
         </Author>
         {props.body}
       </section>
-      <Sidebar anchor='right' owner={owner} list={list} />
+      <Sidebar anchor='right' list={list} />
     </Box>
   );
 };

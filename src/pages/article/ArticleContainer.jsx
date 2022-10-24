@@ -7,7 +7,6 @@ import useSeparate from '../../hooks/useSeparate';
 import formatArticleText from '../../utils/formatArticleText';
 import Article from './Article';
 
-
 function createMarkup(toParse) {
   return { __html: toParse };
 }
@@ -39,7 +38,9 @@ const ArticleContaier = () => {
   const { data: responseArticleData, isLoading, isError } = useApi(articleOptions);
 
   // toDo: заменить значение-заглушку (13)
-  const { pesonInfo: author } = usePersonInfo(responseArticleData ? responseArticleData[0].user_id : 13);
+  const { pesonInfo: author } = usePersonInfo(
+    responseArticleData ? responseArticleData[0].user_id : 13
+  );
 
   useEffect(() => {
     if (responseArticleData) {
@@ -50,7 +51,7 @@ const ArticleContaier = () => {
   }, [responseArticleData]);
   return (
     <>
-      {article[0] && responseArticleData && author ? (
+      {article[0] && responseArticleData && author && (
         <Article
           tabs={<CustomTabs text={responseArticleData[0].content} chapter={currentChapter} />}
           author={{
@@ -62,7 +63,7 @@ const ArticleContaier = () => {
           title={article[0].title}
           body={<ArticleBody content={responseArticleData[0].content} />}
         ></Article>
-      ) : null}
+      )}
     </>
   );
 };

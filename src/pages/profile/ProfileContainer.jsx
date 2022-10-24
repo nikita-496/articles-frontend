@@ -4,7 +4,7 @@ import localStorageManager from '../../persistentStorge/localStorageManager';
 import profile from '../../utils/config/queryParams/profile';
 import Profile from './Profile';
 import interectWithService from '../../utils/interectWithService';
-import formatArticleText from '../../utils/formatArticleText'
+import formatArticleText from '../../utils/formatArticleText';
 import usePersonInfo from '../../hooks/usePersonInfo';
 
 const id = localStorageManager.get('user').id;
@@ -81,7 +81,7 @@ const ProfileContainer = () => {
   useEffect(() => {
     (async () => {
       if (author) {
-        console.log(author)
+        console.log(author);
         let favorites = await formListData({
           favoriteProfilesId: author[2][0].favorite_profiles,
           favoriteArticlesId: author[2][0].favorite_articles,
@@ -89,13 +89,21 @@ const ProfileContainer = () => {
         favorites.favoriteProfiles[0] = favorites.favoriteProfiles[0].map(
           (profile) => profile.find((item) => item.url_avatar).url_avatar
         );
-        favorites.favoriteArticles = favorites.favoriteArticles.map(article => article.title = formatArticleText(article))
+        favorites.favoriteArticles = favorites.favoriteArticles.map(
+          (article) => (article.title = formatArticleText(article))
+        );
         dispatch({ type: 'owner', payload: { author, favorites } });
       }
     })();
   }, [author]);
 
-  return <>{ownerData?.userInfo?.avatar ? <Profile ownerData={ownerData.userInfo} listData={listData}/> : null}</>;
+  return (
+    <>
+      {ownerData?.userInfo?.avatar && (
+        <Profile ownerData={ownerData.userInfo} listData={listData} />
+      )}
+    </>
+  );
 };
 
 export default ProfileContainer;
